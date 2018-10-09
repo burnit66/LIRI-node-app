@@ -1,3 +1,4 @@
+//Initialize
 require("dotenv").config();
 var keys = require("./keys")
 var Spotify = require('node-spotify-api');
@@ -5,13 +6,22 @@ var spotify = new Spotify(keys.spotify);
 var request = require("request");
 var moment = require('moment');
 
+//Take input as first cli argument and remove the dashes
 var input = process.argv[2]
-var query = process.argv[3]
-
 for (var i = 0; i < input.length; i++) {
     input = input.replace("-", "")
 }
+//Take query as second cli argument
+var query = []
+for (var k = 3; k < process.argv.length; k++) {
+    query.push(process.argv[k])
+}
+query = query.toString()
+for (var j = 0; j < query.length; j++) {
+    query = query.replace(",", " ")
+}
 
+//Set up a methods object to take all of the commands and run the functions
 var methods = {
     //  ------------------ BANDS IN TOWN ------------------
     // node liri.js concert-this <artist/band name here>
@@ -73,5 +83,5 @@ var methods = {
         });
     }
 }
-
+//Run the methods based on the input
 methods[input]()

@@ -5,6 +5,7 @@ var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 var request = require("request");
 var moment = require('moment');
+var fs = require('file-system');
 
 //Take input as first cli argument and remove the dashes
 var input = process.argv[2]
@@ -45,7 +46,7 @@ var methods = {
     },
     //  ------------------ SPOTIFY ------------------
     //node liri.js spotify-this-song '<song name here>'
-    spotifythissong: function () {
+    spotifythissong: function (query) {
         if (!query) {
             query = "The Sign"
         }
@@ -81,7 +82,22 @@ var methods = {
                 console.log("\nTitle: " + omdbReturn.Title + "\nYear: " + omdbReturn.Year + "\nIMDB Rating: " + omdbReturn.Ratings[0].Value + "\nRotten Tomatoes Rating: " + omdbReturn.Ratings[1].Value + "\nCountry: " + omdbReturn.Country + "\nLanguage: " + omdbReturn.Language + "\nActors: " + omdbReturn.Actors + "\nPlot: " + omdbReturn.Plot)
             }
         });
+    },
+    dowhatitsays: function () {
+        fs.readFile("random.txt", "utf8", function (error, data) {
+            if (!error) {
+                var dwis = data.split(",")
+                var command = dwis[0]
+                var request = dwis[1]
+                if (command === "spotify-this-song") {
+                    methods.spotifythissong(request)
+                }
+            } else {
+                console.log(error)
+            }
+
+        });
     }
 }
 //Run the methods based on the input
-methods[input]()
+methods[input](query)

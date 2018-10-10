@@ -38,14 +38,17 @@ Do what it says:
 
 ## Returns
 Bands in Town:
+![bands in town](https://user-images.githubusercontent.com/28606480/46710985-56a90900-cc18-11e8-83b8-fe272828bf99.png)
 
 
 Spotify:
+![spotify](https://user-images.githubusercontent.com/28606480/46710945-36794a00-cc18-11e8-96e0-d1d3a3378397.png)
 
 
 OMDB:
+![omdb](https://user-images.githubusercontent.com/28606480/46711000-66285200-cc18-11e8-9b86-4069e749b70c.png)
 
 
 Do what it says:
-
+![do what it says image](https://user-images.githubusercontent.com/28606480/46710893-fca84380-cc17-11e8-8278-9821fb690ddd.png)
 

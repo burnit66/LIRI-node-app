@@ -1,4 +1,4 @@
-console.log('Spotify keys are loaded');
+console.log('Spotify keys are loaded on dev branch');
 
 exports.spotify = {
   id: process.env.SPOTIFY_ID,

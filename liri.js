@@ -22,6 +22,8 @@ for (var j = 0; j < query.length; j++) {
     query = query.replace(",", " ")
 }
 
+
+
 //Set up a methods object to take all of the commands and run the functions
 var methods = {
     //  ------------------ BANDS IN TOWN ------------------
